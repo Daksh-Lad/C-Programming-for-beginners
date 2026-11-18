@@ -1,0 +1,54 @@
+/*
+Question:
+Write a C program to solve a quadratic equation and
+calculate all possible roots.
+*/
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    float a, b, c, d, root1, root2;
+
+    printf("Enter the values of a, b and c: ");
+    scanf("%f %f %f", &a, &b, &c);
+
+    // Check whether the equation is quadratic
+    if(a == 0)
+    {
+        printf("Not a quadratic equation\n");
+    }
+    else
+    {
+        // Calculate the discriminant
+        d = b*b - 4*a*c;
+
+        if(d > 0)
+        {
+            // Calculate two distinct real roots
+            root1 = (-b + sqrt(d)) / (2*a);
+            root2 = (-b - sqrt(d)) / (2*a);
+
+            printf("Root 1 = %.2f\n", root1);
+            printf("Root 2 = %.2f\n", root2);
+        }
+        else if(d == 0)
+        {
+            // Both roots are equal
+            root1 = -b / (2*a);
+
+            printf("Both roots are equal = %.2f\n", root1);
+        }
+        else
+        {
+            // Calculate the real and imaginary parts
+            printf("Root 1 = %.2f + %.2fi\n",
+                   -b/(2*a), sqrt(-d)/(2*a));
+
+            printf("Root 2 = %.2f - %.2fi\n",
+                   -b/(2*a), sqrt(-d)/(2*a));
+        }
+    }
+
+    return 0;
+}
